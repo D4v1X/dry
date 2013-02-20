@@ -35,15 +35,12 @@ public class Account {
     }
 
     private void recordTransation(double amount) {
-        Date date = getCurrentDate();
-        transactionList.add(new Transaction(date, amount));
-        lastTransactionDate = date;
+        transactionList.add(new Transaction(getCurrentDate(), amount));
+        lastTransactionDate = getCurrentDate();
     }
 
     private Date getCurrentDate() {
-        Calendar calendar = Calendar.getInstance();
-        Date date = calendar.getTime();
-        return date;
+        return Calendar.getInstance().getTime();
     }
     
 }
