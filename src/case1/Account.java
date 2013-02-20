@@ -26,17 +26,18 @@ public class Account {
     
     public void credit(double amount) {
         balance -= amount;
-        Calendar calendar = Calendar.getInstance();
-        Date date = calendar.getTime();
-        transactionList.add(new Transaction(date, -amount));
-        lastTransactionDate = date;
+        recordTransation(amount);
     }
     
     public void debit(double amount) {
         balance += amount;
+        recordTransation(amount);
+    }
+
+    private void recordTransation(double amount) {
         Calendar calendar = Calendar.getInstance();
         Date date = calendar.getTime();
-        transactionList.add(new Transaction(date, amount));        
+        transactionList.add(new Transaction(date, -amount));
         lastTransactionDate = date;
     }
     
